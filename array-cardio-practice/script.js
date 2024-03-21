@@ -62,6 +62,23 @@ const people = [
   "Biondo, Frank",
 ];
 
+const data = [
+  "car",
+  "car",
+  "truck",
+  "truck",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "bike",
+  "walk",
+  "car",
+  "van",
+  "car",
+  "truck",
+];
+
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const myFifteen = inventors.filter(
@@ -119,28 +136,22 @@ console.table(oldest);
 
 // 7. sort Exercise
 // Sort the people alphabetically by last name
-const alpha = people.sort(function(lastOne, nextOne) {
-  const [last, first] = lastOne.split(", ");
-  console.log(last, first);
+const alpha = people.sort((lastOne, nextOne) => {
+  const [aLast, aFirst] = lastOne.split(", ");
+  const [bLast, bFirst] = lastOne.split(", ");
+  return aLast > bLast ? 1: -1;
 });
+console.log(alpha);
 
 // 8. Reduce Exercise
 // Sum up the instances of each of these
+const transportation = data.reduce((obj, item) => {
+  if (!obj[item]) {
+    obj[item] = 0; 
+  }
+  obj[item]++;
+  return obj;
+}, {});
+console.log(transportation);
 
 
-const data = [
-  "car",
-  "car",
-  "truck",
-  "truck",
-  "bike",
-  "walk",
-  "car",
-  "van",
-  "bike",
-  "walk",
-  "car",
-  "van",
-  "car",
-  "truck",
-];
