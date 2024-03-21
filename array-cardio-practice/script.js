@@ -84,7 +84,6 @@ const data = [
 const myFifteen = inventors.filter(
   (inventor) => inventor.year >= 1500 && inventor.year < 1600
 );
-//Display result in console
 console.table(myFifteen);
 //Display result in the browser
 //document.getElementById("myYear").innerHTML = JSON.stringify.table(myFifteen);
