@@ -82,8 +82,8 @@ const data = [
 // Array.prototype.filter()
 // 1. Filter the list of inventors for those who were born in the 1500's
 const myFifteen = inventors.filter(
-  inventor => (inventor.year >= 1500 && inventor.year < 1600
-  ));
+  (inventor) => inventor.year >= 1500 && inventor.year < 1600
+);
 //Display result in console
 console.table(myFifteen);
 //Display result in the browser
@@ -91,9 +91,11 @@ console.table(myFifteen);
 
 // Array.prototype.map()
 // 2. Give us an array of the inventors first and last names
-const fullNames = inventors.map(inventor => `${inventor.first} ${inventor.last}`);
+const fullNames = inventors.map(
+  (inventor) => `${inventor.first} ${inventor.last}`
+);
 console.table(fullNames);
-//document.getElementById("myYear").innerHTML = JSON.stringify(fullNames); 
+//document.getElementById("myYear").innerHTML = JSON.stringify(fullNames);
 
 // Array.prototype.sort()
 // 3. Sort the inventors by birthdate, oldest to youngest
@@ -106,7 +108,7 @@ console.table(fullNames);
 // });
 
 //Use ternary operator
-const ordered = inventors.sort((a, b) => a.year > b.year ? 1 : -1);
+const ordered = inventors.sort((a, b) => (a.year > b.year ? 1 : -1));
 
 console.table(ordered);
 
@@ -133,13 +135,12 @@ console.table(oldest);
 //             .map(link => link.textContent)
 //             .filter(streetName => streetName.includes("de"));
 
-
 // 7. sort Exercise
 // Sort the people alphabetically by last name
 const alpha = people.sort((lastOne, nextOne) => {
   const [aLast, aFirst] = lastOne.split(", ");
   const [bLast, bFirst] = lastOne.split(", ");
-  return aLast > bLast ? 1: -1;
+  return aLast > bLast ? 1 : -1;
 });
 console.log(alpha);
 
@@ -147,11 +148,9 @@ console.log(alpha);
 // Sum up the instances of each of these
 const transportation = data.reduce((obj, item) => {
   if (!obj[item]) {
-    obj[item] = 0; 
+    obj[item] = 0;
   }
   obj[item]++;
   return obj;
 }, {});
 console.log(transportation);
-
-
